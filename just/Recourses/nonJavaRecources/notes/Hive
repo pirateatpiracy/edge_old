@@ -1,4 +1,4 @@
-Hive Text File Format: is a default storage format. You can use the text format to interchange the data with other client application. The text file format is very common most of the applications. Data is stored in lines, with each line being a record. Each lines are terminated by a newline character (\n).The text format is simple plane file format. You can use the compression (BZIP2) on the text file to reduce the storage spaces. 
+Text: is a default storage format. You can use the text format to interchange the data with other client application. The text file format is very common most of the applications. Data is stored in lines, with each line being a record. Each lines are terminated by a newline character (\n).The text format is simple plane file format. You can use the compression (BZIP2) on the text file to reduce the storage spaces. 
 Create table textfile_table (column_specs) stored as textfile;
 
 SEQUENCE: files are Hadoop flat files which stores values in binary key-value pairs. The sequence files are in binary format and these files are able to split. The main advantages of using sequence file is to merge two or more files into one file.
