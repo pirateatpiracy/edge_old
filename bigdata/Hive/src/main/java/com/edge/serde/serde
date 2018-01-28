@@ -1,0 +1,9 @@
+create table employees_json( 
+emp_no              	int,                 	                    
+birth_date          	string,              	                    
+first_name          	string,              	                    
+last_name           	string,              	                    
+gender              	string,              	                    
+hire_date           	string) 
+ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.JsonSerde'
+;
