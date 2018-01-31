@@ -34,7 +34,7 @@ public class Main {
 		System.out.println("\nAfter sort with SalaryComparator");
 		Collections.sort(empList, new Comparator<Employee>() { // anonymous inner class
 			public int compare(Employee emp1, Employee emp2) {
-				return (int) (emp1.getSalary() - emp2.getSalary());
+				return (emp1.getSalary() - emp2.getSalary());
 			}
 		});
 		for (Employee emp : empList)System.out.println(emp);

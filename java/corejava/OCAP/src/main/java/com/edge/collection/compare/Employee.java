@@ -32,14 +32,9 @@ public class Employee implements Comparable<Employee> {
 
     @Override
     public int compareTo(Employee emp) {
-        //let's sort the employee based on id in ascending order
-        //returns a negative integer, zero, or a positive integer as this employee id
-        //is less than, equal to, or greater than the specified object.
         return (this.id - emp.id);
     }
-
-    @Override
-    //this is required to print the user friendly information about the Employee
+   
     public String toString() {
         return "[id=" + this.id + ", name=" + this.name + ", age=" + this.age + ", salary=" +
                 this.salary + "]";
