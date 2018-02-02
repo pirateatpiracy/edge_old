@@ -1,4 +1,4 @@
-package com.edge.collection;
+package com.edge.collection.java8;
 
 import java.util.HashMap;
 import java.util.Map;
