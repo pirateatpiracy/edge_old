@@ -1,6 +1,5 @@
 package com.edge.collection.map;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -71,7 +70,7 @@ public class HashMapp {
 	}
 	
 	/*.getOrDefault : java.util.HashMap.getOrDefault() method returns the passed value if there is no value find using the key we passed as an argument in HashMap.
-	 *  If the value for key if present already in the HashMap, it won’t do anything to it.*/
+	 *  If the value for key if present already in the HashMap, it wonï¿½t do anything to it.*/
 	void getOrDefaultt() {System.out.println("\n\n**** getOrDefaultt:");
 		 System.out.println(edge.getOrDefault("Code","javaArticle"));
 		 System.out.println(edge.getOrDefault("Default","javaArticle"));
@@ -82,9 +81,18 @@ public class HashMapp {
 	 * 1st method accepts set of key and value which will replace the already present value of the key with the the new value passed in the argument. If no such set is present replace() method will do nothing.
 	 * Meanwhile 2nd method will only replace the already present set of key-old_value if the key and old_Value are found in the HashMap.*/	 
 	void replacee() { System.out.println("\n\n**** replacee:");
+		edge.replace("Teach", "Methods");//No change, as 'Teach' was not present.
+		System.out.println(mappingedge);//[Language=Hadoop, Platform=Mapreduce, BigData=Hadoop, Learn=Pig, Code=Hive]
+
 		edge.replace("Learn", "Methods");
         System.out.println(mappingedge);//[Language=Hadoop, Platform=Mapreduce, BigData=Hadoop, Learn=Methods, Code=Hive]
-
+       
+        edge.replace("Learn", "Java" ,"C++");//No change as value was not ["Learn", "Java" ] but ["Learn", "Methods" ]
+        System.out.println(mappingedge);//[Language=Hadoop, Platform=Mapreduce, BigData=Hadoop, Learn=Methods, Code=Hive]
+        
+        edge.replace("Learn", "Methods" ,"Java");
+        System.out.println(mappingedge);//[Language=Hadoop, Platform=Mapreduce, BigData=Hadoop, Learn=Java, Code=Hive]
+        
 	}
 	
 /*.putIfAbsent java.util.HashMap.putIfAbsent(key, value) method is being used to insert a new key-value set to the HashMap 
