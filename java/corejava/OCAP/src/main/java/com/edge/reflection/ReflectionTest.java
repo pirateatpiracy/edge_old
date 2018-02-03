@@ -5,7 +5,8 @@ interface ReflectionTestInterface {
 
 public class ReflectionTest {
 	private String s;
-
+	public String w;
+	public String just;
 	public ReflectionTest() {
 		s = "Edge";
 	}
@@ -14,8 +15,8 @@ public class ReflectionTest {
 		System.out.println("The number is " + n);
 	}
 
-	public void method2() {
-		System.out.println("The string is " + s);
+	public void method2(int n, String x) {
+		System.out.println("The string is " + s+x+n);
 	}
 
 	private void method3() {

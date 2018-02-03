@@ -20,7 +20,7 @@ To find mapreduce error in a cluster environment
 YARN has a service for log aggregation that takes the task logs for completed applications and moves them to HDFS, where they are stored in a container file for archival purposes. If this service is enabled (by setting  yarn.log-aggregation-enable  to  true  on the cluster), then task logs can be viewed by clicking on the logs link in the task attempt web UI, or by using the  mapred job -logs  command. 
 By default, log aggregation is not enabled. In this case, task logs can be retrieved by visiting the node manager’s web UI at http:// node-manager-host :8042/logs/userlogs. It is straightforward to write to these logfiles. Anything written to standard output or standard error is directed to the relevant logfile.
 
-***********Combining multiple small files to one, using streaming jar ******
+***********Combining multiple smal files to one, using streaming jar ******
 1: getmerge <from HDFS to Local> 
 hadoop  fs -getmerge /data/mapreduce/multi/ output/wordcount/9
 2:HAR

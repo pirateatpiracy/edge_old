@@ -1,5 +1,7 @@
 package com.edge.reflection;
-
+/*
+ * With Reflection we can execute the methods of a class, without  an object of it.
+ */
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -20,6 +22,7 @@ public class Reflection {
 		reflection.invokeConstructor();
 		reflection.getMethods();
 		reflection.executeMethods();
+		reflection.misc();
 
 	}
 
@@ -71,8 +74,13 @@ public class Reflection {
 		Class c = reflectionTest.getClass();
 		System.out.println("The public methods of class are : ");
 		Method[] methods = c.getMethods();
-		for (Method method : methods)
-			System.out.println(method.getName());
+		for (Method method : methods) {
+			String methodName=method.getName();
+			String params=""; 
+			for (Class param:method.getParameterTypes())params += param.toString()+",";
+			String returntype=method.getReturnType().toString();
+			System.out.println("MethodName: "+methodName+"	ReturnType: "+returntype+"			Parameters: "+params);			
+		}
 	}
 
 	void executeMethods() throws NoSuchMethodException, SecurityException, IllegalAccessException,
@@ -87,11 +95,35 @@ public class Reflection {
 		Field field = c.getDeclaredField("s");
 		field.setAccessible(true);
 		field.set(reflectionTest, "JAVA");
-		Method methodcall2 = c.getDeclaredMethod("method2");
-		methodcall2.invoke(reflectionTest);
+		Method methodcall2 = c.getDeclaredMethod("method2", int.class,String.class);
+		methodcall2.invoke(reflectionTest,7, " Hadoop ");
 
 		Method methodcall3 = c.getDeclaredMethod("method3");
 		methodcall3.setAccessible(true);
 		methodcall3.invoke(reflectionTest);
 	}
+	
+	void misc() {
+		Class c = ReflectionTest.class;
+		System.out.println("\n\ngetName():		"+c.getName());
+		System.out.println("getSimpleName():	"+c.getSimpleName());
+		System.out.println("getCanonicalName():	"+c.getCanonicalName());
+		System.out.println("getTypeName():		"+c.getName());
+		System.out.println("getName():		"+c.getTypeName());
+		System.out.println("hashCode():		"+c.hashCode());
+		System.out.println("getModifiers():		"+c.getModifiers());
+		System.out.println("getSuperclass():		"+c.getSuperclass());
+		System.out.print("getConstructors():		");
+		for(Constructor constructor:c.getConstructors()) System.out.print(constructor.toString()+",");
+		System.out.print("\ngetFields()(public):		");
+		for(Field field :c.getFields()) System.out.print(field.toString()+",");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
