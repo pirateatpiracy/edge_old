@@ -1,4 +1,4 @@
-package com.edge.collection;
+package com.edge.collection.iterator;
 
 import java.util.ArrayList;
 import java.util.HashSet;
