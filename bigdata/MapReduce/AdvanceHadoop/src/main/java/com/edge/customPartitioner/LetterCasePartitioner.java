@@ -1,4 +1,4 @@
-package customPartitioner;
+package com.edge.customPartitioner;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

@@ -1,7 +1,7 @@
 /**
  * The only reason for this class is not to use the whole key(Employee), but only deptno.
  */
-package customValueSort;
+package com.edge.customValueSort;
 
 /**
  * @author New

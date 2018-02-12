@@ -1,4 +1,4 @@
-package customKeySort;
+package com.edge.customPartitioner;
 
 import java.io.IOException;
 import java.util.StringTokenizer;

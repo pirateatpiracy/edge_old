@@ -1,4 +1,4 @@
-package customValueSort;
+package com.edge.customValueSort;
 
 import java.io.DataInput;
 import java.io.DataOutput;

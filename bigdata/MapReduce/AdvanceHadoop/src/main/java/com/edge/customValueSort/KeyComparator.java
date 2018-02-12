@@ -2,7 +2,7 @@
  * Without implementing this class the sorting will be of natural order(between two Employee objects).
  * Using this class, it will be sorted with deptNo, objects with same deptNo will be sorted with titleName.
  */
-package customValueSort;
+package com.edge.customValueSort;
 
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;

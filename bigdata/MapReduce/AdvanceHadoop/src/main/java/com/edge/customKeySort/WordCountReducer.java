@@ -1,4 +1,4 @@
-package customPartitioner;
+package com.edge.customKeySort;
 
 import java.io.IOException;
 import org.apache.hadoop.io.IntWritable;
