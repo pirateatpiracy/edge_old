@@ -1,4 +1,4 @@
-package customValueSort;
+package com.edge.customValueSort;
 
 import java.io.IOException;
 

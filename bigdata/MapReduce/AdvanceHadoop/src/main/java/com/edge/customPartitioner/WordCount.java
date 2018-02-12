@@ -1,4 +1,4 @@
-package customPartitioner;
+package com.edge.customPartitioner;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;

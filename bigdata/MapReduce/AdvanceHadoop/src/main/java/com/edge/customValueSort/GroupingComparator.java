@@ -2,7 +2,7 @@
  * This comparator controls which keys are grouped together for a single call to the Reducer.reduce() function.
  */
 
-package customValueSort;
+package com.edge.customValueSort;
 
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
