@@ -36,24 +36,24 @@ public class TextPair implements WritableComparable<TextPair> {
     return second;
   }
 
-  @Override
+  
   public void write(DataOutput out) throws IOException {
     first.write(out);
     second.write(out);
   }
 
-  @Override
+  
   public void readFields(DataInput in) throws IOException {
     first.readFields(in);
     second.readFields(in);
   }
   
-  @Override
+  
   public int hashCode() {
     return first.hashCode() * 163 + second.hashCode();
   }
   
-  @Override
+  
   public boolean equals(Object o) {
     if (o instanceof TextPair) {
       TextPair tp = (TextPair) o;
@@ -62,12 +62,12 @@ public class TextPair implements WritableComparable<TextPair> {
     return false;
   }
 
-  @Override
+  
   public String toString() {
     return first + "\t" + second;
   }
   
-  @Override
+  
   public int compareTo(TextPair tp) {
     int cmp = first.compareTo(tp.first);
     if (cmp != 0) {
@@ -86,7 +86,7 @@ public class TextPair implements WritableComparable<TextPair> {
       super(TextPair.class);
     }
 
-    @Override
+    
     public int compare(byte[] b1, int s1, int l1,
                        byte[] b2, int s2, int l2) {
       
@@ -119,7 +119,7 @@ public class TextPair implements WritableComparable<TextPair> {
       super(TextPair.class);
     }
 
-    @Override
+    
     public int compare(byte[] b1, int s1, int l1,
                        byte[] b2, int s2, int l2) {
       
@@ -132,7 +132,7 @@ public class TextPair implements WritableComparable<TextPair> {
       }
     }
     
-    @Override
+    
     public int compare(WritableComparable a, WritableComparable b) {
       if (a instanceof TextPair && b instanceof TextPair) {
         return ((TextPair) a).first.compareTo(((TextPair) b).first);

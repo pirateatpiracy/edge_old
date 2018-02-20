@@ -8,7 +8,7 @@ public class StationPartitioner extends Partitioner<LongWritable, Text> {
   
   private NcdcRecordParser parser = new NcdcRecordParser();
   
-  @Override
+  
   public int getPartition(LongWritable key, Text value, int numPartitions) {
     parser.parse(value);
     return getPartition(parser.getStationId());

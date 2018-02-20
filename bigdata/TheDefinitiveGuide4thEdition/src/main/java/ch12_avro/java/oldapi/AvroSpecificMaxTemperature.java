@@ -26,7 +26,7 @@ public class AvroSpecificMaxTemperature extends Configured implements Tool {
       extends AvroMapper<Utf8, Pair<Integer, WeatherRecord>> {
     private NcdcRecordParser parser = new NcdcRecordParser();
     private WeatherRecord record = new WeatherRecord();
-    @Override
+    
     public void map(Utf8 line,
         AvroCollector<Pair<Integer, WeatherRecord>> collector,
         Reporter reporter) throws IOException {
@@ -44,7 +44,7 @@ public class AvroSpecificMaxTemperature extends Configured implements Tool {
   public static class MaxTemperatureReducer extends
       AvroReducer<Integer, WeatherRecord, WeatherRecord> {
 
-    @Override
+    
     public void reduce(Integer key, Iterable<WeatherRecord> values,
         AvroCollector<WeatherRecord> collector,
         Reporter reporter) throws IOException {
@@ -61,7 +61,7 @@ public class AvroSpecificMaxTemperature extends Configured implements Tool {
   public static class MaxTemperatureCombiner extends
       AvroReducer<Integer, WeatherRecord, Pair<Integer, WeatherRecord>> {
     
-    @Override
+    
     public void reduce(Integer key, Iterable<WeatherRecord> values,
         AvroCollector<Pair<Integer, WeatherRecord>> collector,
         Reporter reporter) throws IOException {
@@ -79,7 +79,7 @@ public class AvroSpecificMaxTemperature extends Configured implements Tool {
     return new WeatherRecord(value.getYear(), value.getTemperature(), value.getStationId());
   }
   
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       System.err.printf("Usage: %s [generic options] <input> <output>\n",

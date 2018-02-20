@@ -44,7 +44,7 @@ class MaxTemperatureMapperWithCounters extends Mapper<LongWritable, Text, Text, 
 	}
 	private NcdcRecordParser parser = new NcdcRecordParser();
 
-	@Override
+	
 	protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
 		parser.parse(value);
@@ -65,7 +65,7 @@ class MaxTemperatureMapperWithCounters extends Mapper<LongWritable, Text, Text, 
 class MaxTemperatureReducer
 extends Reducer<Text, IntWritable, Text, IntWritable> {
 
-@Override
+
 public void reduce(Text key, Iterable<IntWritable> values,
     Context context)
     throws IOException, InterruptedException {

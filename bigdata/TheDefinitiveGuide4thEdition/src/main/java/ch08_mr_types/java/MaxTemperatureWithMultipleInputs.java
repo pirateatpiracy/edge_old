@@ -19,7 +19,7 @@ public class MaxTemperatureWithMultipleInputs extends Configured
   
     private MetOfficeRecordParser parser = new MetOfficeRecordParser();
     
-    @Override
+    
     protected void map(LongWritable key, Text value, Context context)
         throws IOException, InterruptedException {
       parser.parse(value);
@@ -30,7 +30,7 @@ public class MaxTemperatureWithMultipleInputs extends Configured
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 3) {
       JobBuilder.printUsage(this, "<ncdc input> <metoffice input> <output>");

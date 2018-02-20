@@ -18,14 +18,14 @@ public class SmallFilesToSequenceFileConverter extends Configured implements Too
 	static class SequenceFileMapper extends Mapper<NullWritable, BytesWritable, Text, BytesWritable> {
 		private Text filenameKey;
 
-		@Override
+		
 		protected void setup(Context context) throws IOException, InterruptedException {
 			InputSplit split = context.getInputSplit();
 			Path path = ((FileSplit) split).getPath();
 			filenameKey = new Text(path.toString());
 		}
 
-		@Override
+		
 		protected void map(NullWritable key, BytesWritable value, Context context)
 				throws IOException, InterruptedException {
 			context.write(filenameKey, value);

@@ -9,7 +9,7 @@ public class JoinStationMapper
     extends Mapper<LongWritable, Text, TextPair, Text> {
   private NcdcStationMetadataParser parser = new NcdcStationMetadataParser();
 
-  @Override
+  
   protected void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
     if (parser.parse(value)) {

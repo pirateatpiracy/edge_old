@@ -23,7 +23,7 @@ public class SmallFilesToSequenceFileConverter extends Configured
     
     private Text filenameKey;
     
-    @Override
+    
     protected void setup(Context context) throws IOException,
         InterruptedException {
       InputSplit split = context.getInputSplit();
@@ -31,7 +31,7 @@ public class SmallFilesToSequenceFileConverter extends Configured
       filenameKey = new Text(path.toString());
     }
     
-    @Override
+    
     protected void map(NullWritable key, BytesWritable value, Context context)
         throws IOException, InterruptedException {
       context.write(filenameKey, value);
@@ -39,7 +39,7 @@ public class SmallFilesToSequenceFileConverter extends Configured
     
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (job == null) {

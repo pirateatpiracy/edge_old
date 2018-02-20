@@ -21,7 +21,7 @@ public class HBaseTemperatureImporter extends Configured implements Tool {
   static class HBaseTemperatureMapper<K> extends Mapper<LongWritable, Text, K, Put> {
     private NcdcRecordParser parser = new NcdcRecordParser();
 
-    @Override
+    
     public void map(LongWritable key, Text value, Context context) throws
         IOException, InterruptedException {
       parser.parse(value.toString());
@@ -37,7 +37,7 @@ public class HBaseTemperatureImporter extends Configured implements Tool {
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 1) {
       System.err.println("Usage: HBaseTemperatureImporter <input>");

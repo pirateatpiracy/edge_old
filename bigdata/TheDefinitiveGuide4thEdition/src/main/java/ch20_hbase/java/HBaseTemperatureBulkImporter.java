@@ -29,7 +29,7 @@ public class HBaseTemperatureBulkImporter extends Configured implements Tool {
       ImmutableBytesWritable, Put> {
     private NcdcRecordParser parser = new NcdcRecordParser();
 
-    @Override
+    
     public void map(LongWritable key, Text value, Context context) throws
         IOException, InterruptedException {
       parser.parse(value.toString());
@@ -45,7 +45,7 @@ public class HBaseTemperatureBulkImporter extends Configured implements Tool {
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 1) {
       System.err.println("Usage: HBaseTemperatureBulkImporter <input>");

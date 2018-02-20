@@ -21,7 +21,7 @@ import org.apache.pig.impl.logicalLayer.schema.Schema;
 
 public class IsGoodQuality extends FilterFunc {
 
-  @Override
+  
   public Boolean exec(Tuple tuple) throws IOException {
     if (tuple == null || tuple.size() == 0) {
       return false;
@@ -39,7 +39,7 @@ public class IsGoodQuality extends FilterFunc {
   }
 //^^ IsGoodQuality
 //vv IsGoodQualityTyped
-  @Override
+  
   public List<FuncSpec> getArgToFuncMapping() throws FrontendException {
     List<FuncSpec> funcSpecs = new ArrayList<FuncSpec>();
     funcSpecs.add(new FuncSpec(this.getClass().getName(),

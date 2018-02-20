@@ -47,12 +47,12 @@ public class AvroGenericMaxTemperatureCrunch implements Serializable {
       .groupByKey()
       .combineValues(new Aggregators.SimpleAggregator<GenericData.Record>() {
         transient GenericData.Record max;
-        @Override
+        
         public void reset() {
           max = null;
         }
 
-        @Override
+        
         public void update(GenericData.Record value) {
           if (max == null ||
               (Integer) value.get("temperature") > (Integer) max.get("temperature")) {
@@ -68,7 +68,7 @@ public class AvroGenericMaxTemperatureCrunch implements Serializable {
           return record;
         }
 
-        @Override
+        
         public Iterable<GenericData.Record> results() {
           return Collections.singleton(max);
         }
@@ -82,7 +82,7 @@ public class AvroGenericMaxTemperatureCrunch implements Serializable {
     return new DoFn<String, Pair<Integer, GenericData.Record>>() {
       private NcdcRecordParser parser = new NcdcRecordParser();
       private transient GenericData.Record record;
-      @Override
+      
       public void process(String input, Emitter<Pair<Integer, GenericData.Record>> emitter) {
         parser.parse(input.toString());
         if (parser.isValidTemperature()) {

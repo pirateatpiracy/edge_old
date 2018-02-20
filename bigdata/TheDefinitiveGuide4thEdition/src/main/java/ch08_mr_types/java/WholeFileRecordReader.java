@@ -21,14 +21,14 @@ class WholeFileRecordReader extends RecordReader<NullWritable, BytesWritable> {
   private BytesWritable value = new BytesWritable();
   private boolean processed = false;
 
-  @Override
+  
   public void initialize(InputSplit split, TaskAttemptContext context)
       throws IOException, InterruptedException {
     this.fileSplit = (FileSplit) split;
     this.conf = context.getConfiguration();
   }
   
-  @Override
+  
   public boolean nextKeyValue() throws IOException, InterruptedException {
     if (!processed) {
       byte[] contents = new byte[(int) fileSplit.getLength()];
@@ -48,23 +48,23 @@ class WholeFileRecordReader extends RecordReader<NullWritable, BytesWritable> {
     return false;
   }
   
-  @Override
+  
   public NullWritable getCurrentKey() throws IOException, InterruptedException {
     return NullWritable.get();
   }
 
-  @Override
+  
   public BytesWritable getCurrentValue() throws IOException,
       InterruptedException {
     return value;
   }
 
-  @Override
+  
   public float getProgress() throws IOException {
     return processed ? 1.0f : 0.0f;
   }
 
-  @Override
+  
   public void close() throws IOException {
     // do nothing
   }

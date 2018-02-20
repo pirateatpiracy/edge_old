@@ -16,13 +16,13 @@ public class SimpleRowCounter extends Configured implements Tool {
   static class RowCounterMapper extends TableMapper<ImmutableBytesWritable, Result> {
     public static enum Counters { ROWS }
 
-    @Override
+    
     public void map(ImmutableBytesWritable row, Result value, Context context) {
       context.getCounter(Counters.ROWS).increment(1);
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 1) {
       System.err.println("Usage: SimpleRowCounter <tablename>");

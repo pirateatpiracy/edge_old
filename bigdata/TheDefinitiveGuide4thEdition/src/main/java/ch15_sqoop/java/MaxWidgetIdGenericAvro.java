@@ -30,7 +30,7 @@ public class MaxWidgetIdGenericAvro extends Configured implements Tool {
       AvroKey<Long>, AvroValue<GenericRecord>> {
 
     private GenericRecord maxWidget;
-    @Override
+    
     protected void map(AvroKey<GenericRecord> key, NullWritable value, Context context)
         throws IOException, InterruptedException {
       GenericRecord widget = key.datum();
@@ -43,7 +43,7 @@ public class MaxWidgetIdGenericAvro extends Configured implements Tool {
       }
     }
 
-    @Override
+    
     protected void cleanup(Context context) throws IOException, InterruptedException {
       context.write(new AvroKey(0L), new AvroValue<GenericRecord>(maxWidget));
     }
@@ -53,7 +53,7 @@ public class MaxWidgetIdGenericAvro extends Configured implements Tool {
       extends Reducer<AvroKey<Long>, AvroValue<GenericRecord>,
       AvroKey<GenericRecord>, NullWritable> {
 
-    @Override
+    
     protected void reduce(AvroKey<Long> key, Iterable<AvroValue<GenericRecord>>
         values, Context context) throws IOException, InterruptedException {
       GenericRecord maxWidget = null;
@@ -77,7 +77,7 @@ public class MaxWidgetIdGenericAvro extends Configured implements Tool {
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = new Job(getConf(), "Max widget ID");
     job.setJarByClass(getClass());

@@ -29,7 +29,7 @@ public class PartitionByStationUsingMultipleOutputFormat extends Configured
   static class StationReducer extends MapReduceBase
     implements Reducer<Text, Text, NullWritable, Text> {
 
-    @Override
+    
     public void reduce(Text key, Iterator<Text> values,
         OutputCollector<NullWritable, Text> output, Reporter reporter)
         throws IOException {
@@ -51,7 +51,7 @@ public class PartitionByStationUsingMultipleOutputFormat extends Configured
     }
   }/*]*/
 
-  @Override
+  
   public int run(String[] args) throws IOException {
     JobConf conf = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (conf == null) {

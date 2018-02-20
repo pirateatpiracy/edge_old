@@ -20,7 +20,7 @@ public class MaxTemperatureMapper
   
   private NcdcRecordParser parser = new NcdcRecordParser();
 
-  @Override
+  
   public void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
     

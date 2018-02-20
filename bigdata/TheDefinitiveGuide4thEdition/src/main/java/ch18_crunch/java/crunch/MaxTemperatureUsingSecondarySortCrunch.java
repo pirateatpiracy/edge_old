@@ -36,7 +36,7 @@ public class MaxTemperatureUsingSecondarySortCrunch {
   private static DoFn<String, Pair<Integer, Integer>> toYearTempValueFn() {
     return new DoFn<String, Pair<Integer, Integer>>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<Integer, Integer>> emitter) {
         parser.parse(input);
         if (parser.isValidTemperature()) {

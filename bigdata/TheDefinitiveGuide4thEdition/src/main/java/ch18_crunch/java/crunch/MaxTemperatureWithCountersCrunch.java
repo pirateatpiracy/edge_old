@@ -59,7 +59,7 @@ public class MaxTemperatureWithCountersCrunch {
   private static DoFn<String, Pair<String, Integer>> toYearTempPairsFn() {
     return new DoFn<String, Pair<String, Integer>>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, Integer>> emitter) {
         parser.parse(input);
         if (parser.isValidTemperature()) {

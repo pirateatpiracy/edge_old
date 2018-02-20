@@ -20,14 +20,14 @@ public class ParquetToTextWithExample extends Configured implements Tool {
   public static class ParquetToTextMapper
       extends Mapper<Void, Group, NullWritable, Text> {
 
-    @Override
+    
     protected void map(Void key, Group value, Context context)
         throws IOException, InterruptedException {
       context.write(NullWritable.get(), new Text(value.toString()));
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       System.err.printf("Usage: %s [generic options] <input> <output>\n",

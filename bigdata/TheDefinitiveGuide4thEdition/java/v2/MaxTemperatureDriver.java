@@ -15,7 +15,7 @@ import v1.MaxTemperatureReducer;
 // vv MaxTemperatureDriverV2
 public class MaxTemperatureDriver extends Configured implements Tool {
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       System.err.printf("Usage: %s [generic options] <input> <output>\n",

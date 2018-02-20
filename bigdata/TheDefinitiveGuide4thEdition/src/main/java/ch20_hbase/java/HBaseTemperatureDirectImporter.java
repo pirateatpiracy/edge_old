@@ -26,7 +26,7 @@ public class HBaseTemperatureDirectImporter extends Configured implements Tool {
     private NcdcRecordParser parser = new NcdcRecordParser();
     private HTable table;
 
-    @Override
+    
     protected void setup(Context context) throws IOException {
       // Create the HBase table client once up-front and keep it around
       // rather than create on each map invocation.
@@ -34,7 +34,7 @@ public class HBaseTemperatureDirectImporter extends Configured implements Tool {
           "observations");
     }
 
-    @Override
+    
     public void map(LongWritable key, Text value, Context context) throws
         IOException, InterruptedException {
       parser.parse(value.toString());
@@ -49,13 +49,13 @@ public class HBaseTemperatureDirectImporter extends Configured implements Tool {
       }
     }
 
-    @Override
+    
     protected void cleanup(Context context) throws IOException {
       table.close();
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 1) {
       System.err.println("Usage: HBaseTemperatureDirectImporter <input>");

@@ -25,12 +25,12 @@ public class Range {
     return line.substring(start - 1, end);
   }
   
-  @Override
+  
   public int hashCode() {
     return start * 37 + end;
   }
 
-  @Override
+  
   public boolean equals(Object obj) {
     if (!(obj instanceof Range)) {
       return false;

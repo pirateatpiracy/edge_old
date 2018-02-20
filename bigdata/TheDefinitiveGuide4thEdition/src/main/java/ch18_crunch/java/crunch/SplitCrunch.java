@@ -13,7 +13,7 @@ public class SplitCrunch implements Serializable {
 
     PCollection<String> goodRecords = records.filter(new FilterFn<String>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override public boolean accept(String s) {
+       public boolean accept(String s) {
         parser.parse(s);
         return parser.isValidTemperature();
       }
@@ -21,7 +21,7 @@ public class SplitCrunch implements Serializable {
 
     PCollection<String> badRecords = records.filter(new FilterFn<String>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override public boolean accept(String s) {
+       public boolean accept(String s) {
         parser.parse(s);
         return !parser.isValidTemperature();
       }

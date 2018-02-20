@@ -28,24 +28,24 @@ public class IntPair implements WritableComparable<IntPair> {
     return second;
   }
 
-  @Override
+  
   public void write(DataOutput out) throws IOException {
     out.writeInt(first);
     out.writeInt(second);
   }
 
-  @Override
+  
   public void readFields(DataInput in) throws IOException {
     first = in.readInt();
     second = in.readInt();
   }
   
-  @Override
+  
   public int hashCode() {
     return first * 163 + second;
   }
   
-  @Override
+  
   public boolean equals(Object o) {
     if (o instanceof IntPair) {
       IntPair ip = (IntPair) o;
@@ -54,12 +54,12 @@ public class IntPair implements WritableComparable<IntPair> {
     return false;
   }
 
-  @Override
+  
   public String toString() {
     return first + "\t" + second;
   }
   
-  @Override
+  
   public int compareTo(IntPair ip) {
     int cmp = compare(first, ip.first);
     if (cmp != 0) {

@@ -32,23 +32,23 @@ public class CutLoadFunc extends LoadFunc {
     ranges = Range.parse(cutPattern);
   }
   
-  @Override
+  
   public void setLocation(String location, Job job)
       throws IOException {
     FileInputFormat.setInputPaths(job, location);
   }
   
-  @Override
+  
   public InputFormat getInputFormat() {
     return new TextInputFormat();
   }
   
-  @Override
+  
   public void prepareToRead(RecordReader reader, PigSplit split) {
     this.reader = reader;
   }
 
-  @Override
+  
   public Tuple getNext() throws IOException {
     try {
       if (!reader.nextKeyValue()) {

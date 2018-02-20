@@ -20,7 +20,7 @@ public class PartitionByStationYearUsingMultipleOutputs extends Configured
   
     private NcdcRecordParser parser = new NcdcRecordParser();
     
-    @Override
+    
     protected void map(LongWritable key, Text value, Context context)
         throws IOException, InterruptedException {
       parser.parse(value);
@@ -34,14 +34,14 @@ public class PartitionByStationYearUsingMultipleOutputs extends Configured
     private MultipleOutputs<NullWritable, Text> multipleOutputs;
     private NcdcRecordParser parser = new NcdcRecordParser();
 
-    @Override
+    
     protected void setup(Context context)
         throws IOException, InterruptedException {
       multipleOutputs = new MultipleOutputs<NullWritable, Text>(context);
     }
 
 // vv PartitionByStationYearUsingMultipleOutputs
-    @Override
+    
     protected void reduce(Text key, Iterable<Text> values, Context context)
         throws IOException, InterruptedException {
       for (Text value : values) {
@@ -53,14 +53,14 @@ public class PartitionByStationYearUsingMultipleOutputs extends Configured
     }
 // ^^ PartitionByStationYearUsingMultipleOutputs
     
-    @Override
+    
     protected void cleanup(Context context)
         throws IOException, InterruptedException {
       multipleOutputs.close();
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (job == null) {

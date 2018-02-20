@@ -46,7 +46,7 @@ public class MaxTemperatureByStationNameCrunch {
   private static DoFn<String, Pair<String, Integer>> toStationIdTempPairsFn() {
     return new DoFn<String, Pair<String, Integer>>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, Integer>> emitter) {
         parser.parse(input);
         if (parser.isValidTemperature()) {
@@ -58,7 +58,7 @@ public class MaxTemperatureByStationNameCrunch {
   private static DoFn<String, Pair<String, String>> toStationIdNamePairsFn() {
     return new DoFn<String, Pair<String, String>>() {
       NcdcStationMetadataParser parser = new NcdcStationMetadataParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, String>> emitter) {
         if (parser.parse(input)) {
           emitter.emit(Pair.of(parser.getStationId(), parser.getStationName()));

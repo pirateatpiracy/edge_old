@@ -10,7 +10,7 @@ import org.apache.hadoop.util.*;
 
 public class MinimalMapReduceWithDefaults extends Configured implements Tool {
   
-  @Override
+  
   public int run(String[] args) throws IOException {
     JobConf conf = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (conf == null) {

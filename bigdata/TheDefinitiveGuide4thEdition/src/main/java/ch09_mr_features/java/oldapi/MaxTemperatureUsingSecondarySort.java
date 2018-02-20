@@ -42,10 +42,10 @@ public class MaxTemperatureUsingSecondarySort
   public static class FirstPartitioner
     implements Partitioner<IntPair, NullWritable> {
 
-    @Override
+    
     public void configure(JobConf job) {}
     
-    @Override
+    
     public int getPartition(IntPair key, NullWritable value, int numPartitions) {
       return Math.abs(key.getFirst() * 127) % numPartitions;
     }
@@ -55,7 +55,7 @@ public class MaxTemperatureUsingSecondarySort
     protected KeyComparator() {
       super(IntPair.class, true);
     }
-    @Override
+    
     public int compare(WritableComparable w1, WritableComparable w2) {
       IntPair ip1 = (IntPair) w1;
       IntPair ip2 = (IntPair) w2;
@@ -71,7 +71,7 @@ public class MaxTemperatureUsingSecondarySort
     protected GroupComparator() {
       super(IntPair.class, true);
     }
-    @Override
+    
     public int compare(WritableComparable w1, WritableComparable w2) {
       IntPair ip1 = (IntPair) w1;
       IntPair ip2 = (IntPair) w2;
@@ -79,7 +79,7 @@ public class MaxTemperatureUsingSecondarySort
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws IOException {
     JobConf conf = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (conf == null) {

@@ -40,7 +40,7 @@ public class AvroGenericMaxTemperature extends Configured implements Tool {
       extends AvroMapper<Utf8, Pair<Integer, GenericRecord>> {
     private NcdcRecordParser parser = new NcdcRecordParser();
     private GenericRecord record = new GenericData.Record(SCHEMA);
-    @Override
+    
     public void map(Utf8 line,
         AvroCollector<Pair<Integer, GenericRecord>> collector,
         Reporter reporter) throws IOException {
@@ -58,7 +58,7 @@ public class AvroGenericMaxTemperature extends Configured implements Tool {
   public static class MaxTemperatureReducer
       extends AvroReducer<Integer, GenericRecord, GenericRecord> {
 
-    @Override
+    
     public void reduce(Integer key, Iterable<GenericRecord> values,
         AvroCollector<GenericRecord> collector, Reporter reporter)
         throws IOException {
@@ -80,7 +80,7 @@ public class AvroGenericMaxTemperature extends Configured implements Tool {
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       System.err.printf("Usage: %s [generic options] <input> <output>\n",

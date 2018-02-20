@@ -7,7 +7,7 @@ public class StationPartitioner implements Partitioner<LongWritable, Text> {
   
   private NcdcRecordParser parser = new NcdcRecordParser();
   
-  @Override
+  
   public int getPartition(LongWritable key, Text value, int numPartitions) {
     parser.parse(value);
     return getPartition(parser.getStationId());
@@ -17,6 +17,6 @@ public class StationPartitioner implements Partitioner<LongWritable, Text> {
     return 0;
   }
 
-  @Override
+  
   public void configure(JobConf conf) { }
 }

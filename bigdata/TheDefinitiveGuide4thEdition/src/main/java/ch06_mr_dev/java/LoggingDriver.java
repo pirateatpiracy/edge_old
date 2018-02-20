@@ -8,7 +8,7 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class LoggingDriver extends Configured implements Tool {
   
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       System.err.printf("Usage: %s [generic options] <input> <output>\n",

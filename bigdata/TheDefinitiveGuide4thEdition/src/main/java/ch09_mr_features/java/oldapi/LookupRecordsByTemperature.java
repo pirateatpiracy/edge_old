@@ -10,7 +10,7 @@ import org.apache.hadoop.util.*;
 
 public class LookupRecordsByTemperature extends Configured implements Tool {
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       JobBuilder.printUsage(this, "<path> <key>");

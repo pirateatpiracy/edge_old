@@ -14,7 +14,7 @@ import org.apache.hadoop.hive.serde2.typeinfo.TypeInfo;
 
 public class CollectAll extends AbstractGenericUDAFResolver
 {
-    @Override
+    
     public GenericUDAFEvaluator getEvaluator(TypeInfo[] tis)
             throws SemanticException
     {
@@ -31,7 +31,7 @@ public class CollectAll extends AbstractGenericUDAFResolver
         private StandardListObjectInspector loi;
         private StandardListObjectInspector internalMergeOI;
 
-        @Override
+        
         public ObjectInspector init(Mode m, ObjectInspector[] parameters)
                 throws HiveException
         {
@@ -67,14 +67,14 @@ public class CollectAll extends AbstractGenericUDAFResolver
             ArrayList<Object> container;
         }
 
-        @Override
+        
         public void reset(AggregationBuffer ab)
                 throws HiveException
         {
             ((ArrayAggregationBuffer) ab).container = new ArrayList<Object>();
         }
 
-        @Override
+        
         public AggregationBuffer getNewAggregationBuffer()
                 throws HiveException
         {
@@ -83,7 +83,7 @@ public class CollectAll extends AbstractGenericUDAFResolver
             return ret;
         }
 
-        @Override
+        
         public void iterate(AggregationBuffer ab, Object[] parameters)
                 throws HiveException
         {
@@ -96,7 +96,7 @@ public class CollectAll extends AbstractGenericUDAFResolver
             }
         }
 
-        @Override
+        
         public Object terminatePartial(AggregationBuffer ab)
                 throws HiveException
         {
@@ -106,7 +106,7 @@ public class CollectAll extends AbstractGenericUDAFResolver
             return ret;
         }
 
-        @Override
+        
         public void merge(AggregationBuffer ab, Object o)
                 throws HiveException
         {
@@ -118,7 +118,7 @@ public class CollectAll extends AbstractGenericUDAFResolver
             }
         }
 
-        @Override
+        
         public Object terminate(AggregationBuffer ab)
                 throws HiveException
         {

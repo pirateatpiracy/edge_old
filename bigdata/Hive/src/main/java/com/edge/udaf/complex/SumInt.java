@@ -15,7 +15,7 @@ import org.apache.hadoop.hive.serde2.typeinfo.TypeInfo;
 
 public class SumInt extends AbstractGenericUDAFResolver {
 
-	@Override
+	
 	public GenericUDAFEvaluator getEvaluator(TypeInfo[] info) throws SemanticException {
 		
 	
@@ -52,7 +52,7 @@ public class SumInt extends AbstractGenericUDAFResolver {
 			int sum;
 		}
 		
-		@Override
+		
 		public ObjectInspector init(Mode m, ObjectInspector[] parameters) throws HiveException {
 			super.init(m, parameters);
 			
@@ -60,36 +60,36 @@ public class SumInt extends AbstractGenericUDAFResolver {
 			return PrimitiveObjectInspectorFactory.javaIntObjectInspector;
 		}
 		
-		@Override
+		
 		public AggregationBuffer getNewAggregationBuffer() throws HiveException {
 			SumAggregationBuffer sum = new SumAggregationBuffer();
 			reset(sum);
 			return sum;
 		}
 
-		@Override
+		
 		public void reset(AggregationBuffer agg) throws HiveException {
 			((SumAggregationBuffer) agg).sum = 0;
 		}
 
-		@Override
+		
 		public void iterate(AggregationBuffer agg, Object[] parameters) throws HiveException {	
 			if(parameters.length != 0 && inputOI.getPrimitiveJavaObject(parameters[0]) != null) {
 				((SumAggregationBuffer) agg).sum += Integer.parseInt(inputOI.getPrimitiveJavaObject(parameters[0]).toString());
 			}
 		}
 
-		@Override
+		
 		public Object terminatePartial(AggregationBuffer agg) throws HiveException {
 			return ((SumAggregationBuffer) agg).sum;
 		}
 
-		@Override
+		
 		public void merge(AggregationBuffer agg, Object partial) throws HiveException {
 			((SumAggregationBuffer) agg).sum += Integer.parseInt(inputOI.getPrimitiveJavaObject(partial).toString());
 		}
 
-		@Override
+		
 		public Object terminate(AggregationBuffer agg) throws HiveException {
 			return ((SumAggregationBuffer) agg).sum;
 		}
@@ -109,7 +109,7 @@ public class SumInt extends AbstractGenericUDAFResolver {
 			int sum;
 		}
 		
-		@Override
+		
 		public ObjectInspector init(Mode m, ObjectInspector[] parameters) throws HiveException {
 			super.init(m, parameters);
 			
@@ -117,34 +117,34 @@ public class SumInt extends AbstractGenericUDAFResolver {
 			return PrimitiveObjectInspectorFactory.javaIntObjectInspector;
 		}
 		
-		@Override
+		
 		public AggregationBuffer getNewAggregationBuffer() throws HiveException {
 			SumAggregationBuffer sum = new SumAggregationBuffer();
 			reset(sum);
 			return sum;
 		}
 
-		@Override
+		
 		public void reset(AggregationBuffer agg) throws HiveException {
 			((SumAggregationBuffer) agg).sum = 0;
 		}
 
-		@Override
+		
 		public void iterate(AggregationBuffer agg, Object[] parameters) throws HiveException {
 			((SumAggregationBuffer) agg).sum += inputOI.get(parameters[0]);
 		}
 
-		@Override
+		
 		public Object terminatePartial(AggregationBuffer agg) throws HiveException {
 			return ((SumAggregationBuffer) agg).sum;
 		}
 
-		@Override
+		
 		public void merge(AggregationBuffer agg, Object partial) throws HiveException {
 			((SumAggregationBuffer) agg).sum += inputOI.get(partial);
 		}
 
-		@Override
+		
 		public Object terminate(AggregationBuffer agg) throws HiveException {
 			return ((SumAggregationBuffer) agg).sum;
 		}

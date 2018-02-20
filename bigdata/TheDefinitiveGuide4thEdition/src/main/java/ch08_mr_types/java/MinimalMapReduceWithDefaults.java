@@ -14,7 +14,7 @@ import org.apache.hadoop.util.ToolRunner;
 //vv MinimalMapReduceWithDefaults
 public class MinimalMapReduceWithDefaults extends Configured implements Tool {
   
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (job == null) {

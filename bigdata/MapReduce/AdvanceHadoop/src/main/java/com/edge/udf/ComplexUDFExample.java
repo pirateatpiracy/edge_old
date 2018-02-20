@@ -16,12 +16,12 @@ class ComplexUDFExample extends GenericUDF {
   ListObjectInspector listOI;
   StringObjectInspector elementOI;
 
-  @Override
+  
   public String getDisplayString(String[] arg0) {
     return "arrayContainsExample()"; // this should probably be better
   }
 
-  @Override
+  
   public ObjectInspector initialize(ObjectInspector[] arguments) throws UDFArgumentException {
     if (arguments.length != 2) {
       throw new UDFArgumentLengthException("arrayContainsExample only takes 2 arguments: List<T>, T");
@@ -44,7 +44,7 @@ class ComplexUDFExample extends GenericUDF {
     return PrimitiveObjectInspectorFactory.javaBooleanObjectInspector;
   }
   
-  @Override
+  
   public Object evaluate(DeferredObject[] arguments) throws HiveException {
     
     // get the list and string from the deferred objects using the object inspectors

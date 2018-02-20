@@ -29,7 +29,7 @@ public class MaxTemperatureWithMultipleInputs extends Configured
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 3) {
       JobBuilder.printUsage(this, "<ncdc input> <metoffice input> <output>");

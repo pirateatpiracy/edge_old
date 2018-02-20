@@ -45,7 +45,7 @@ public class AvroGenericMaxTemperature extends Configured implements Tool {
     private NcdcRecordParser parser = new NcdcRecordParser();
     private GenericRecord record = new GenericData.Record(SCHEMA);
 
-    @Override
+    
     protected void map(LongWritable key, Text value, Context context)
         throws IOException, InterruptedException {
       parser.parse(value.toString());
@@ -63,7 +63,7 @@ public class AvroGenericMaxTemperature extends Configured implements Tool {
       extends Reducer<AvroKey<Integer>, AvroValue<GenericRecord>,
             AvroKey<GenericRecord>, NullWritable> {
 
-    @Override
+    
     protected void reduce(AvroKey<Integer> key, Iterable<AvroValue<GenericRecord>>
         values, Context context) throws IOException, InterruptedException {
       GenericRecord max = null;
@@ -85,7 +85,7 @@ public class AvroGenericMaxTemperature extends Configured implements Tool {
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       System.err.printf("Usage: %s [generic options] <input> <output>\n",

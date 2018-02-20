@@ -45,7 +45,7 @@ public class MaxTemperatureWithCompressionCrunch {
 
   private static DoFn<String, Pair<String, Integer>> toYearTempPairsFn() {
     return new DoFn<String, Pair<String, Integer>>() {
-      @Override
+      
       public void process(String input, Emitter<Pair<String, Integer>> emitter) {
         String line = input.toString();
         String year = line.substring(15, 19);

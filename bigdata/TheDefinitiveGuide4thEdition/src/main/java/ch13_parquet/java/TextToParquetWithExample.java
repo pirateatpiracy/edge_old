@@ -32,7 +32,7 @@ public class TextToParquetWithExample extends Configured implements Tool {
 
     private GroupFactory groupFactory = new SimpleGroupFactory(SCHEMA);
 
-    @Override
+    
     protected void map(LongWritable key, Text value, Context context)
         throws IOException, InterruptedException {
       Group group = groupFactory.newGroup()
@@ -42,7 +42,7 @@ public class TextToParquetWithExample extends Configured implements Tool {
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 2) {
       System.err.printf("Usage: %s [generic options] <input> <output>\n",

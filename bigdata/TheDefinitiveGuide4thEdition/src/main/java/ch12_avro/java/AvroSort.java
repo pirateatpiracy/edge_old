@@ -25,7 +25,7 @@ public class AvroSort extends Configured implements Tool {
 
   static class SortMapper<K> extends Mapper<AvroKey<K>, NullWritable,
       AvroKey<K>, AvroValue<K>> {
-    @Override
+    
     protected void map(AvroKey<K> key, NullWritable value,
         Context context) throws IOException, InterruptedException {
       context.write(key, new AvroValue<K>(key.datum()));
@@ -34,7 +34,7 @@ public class AvroSort extends Configured implements Tool {
 
   static class SortReducer<K> extends Reducer<AvroKey<K>, AvroValue<K>,
       AvroKey<K>, NullWritable> {
-    @Override
+    
     protected void reduce(AvroKey<K> key, Iterable<AvroValue<K>> values,
         Context context) throws IOException, InterruptedException {
       for (AvroValue<K> value : values) {
@@ -43,7 +43,7 @@ public class AvroSort extends Configured implements Tool {
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     
     if (args.length != 3) {

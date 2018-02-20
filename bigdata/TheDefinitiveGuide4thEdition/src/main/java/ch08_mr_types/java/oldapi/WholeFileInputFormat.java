@@ -10,12 +10,12 @@ import sequenceFile.WholeFileRecordReader;
 public class WholeFileInputFormat
     extends FileInputFormat<NullWritable, BytesWritable> {
   
-  @Override
+  
   protected boolean isSplitable(FileSystem fs, Path filename) {
     return false;
   }
 
-  @Override
+  
   public RecordReader<NullWritable, BytesWritable> getRecordReader(
       InputSplit split, JobConf job, Reporter reporter) throws IOException {
 

@@ -24,7 +24,7 @@ public class CreateGroup implements Watcher {
     connectedSignal.await();
   }
   
-  @Override
+  
   public void process(WatchedEvent event) { // Watcher interface
     if (event.getState() == KeeperState.SyncConnected) {
       connectedSignal.countDown();

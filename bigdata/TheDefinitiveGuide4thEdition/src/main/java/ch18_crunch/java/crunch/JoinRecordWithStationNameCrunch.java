@@ -38,7 +38,7 @@ public class JoinRecordWithStationNameCrunch {
   private static DoFn<String, Pair<String, String>> toStationIdRecordPairsFn() {
     return new DoFn<String, Pair<String, String>>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, String>> emitter) {
         parser.parse(input);
         emitter.emit(Pair.of(parser.getStationId(), input));
@@ -48,7 +48,7 @@ public class JoinRecordWithStationNameCrunch {
   private static DoFn<String, Pair<String, String>> toStationIdNamePairsFn() {
     return new DoFn<String, Pair<String, String>>() {
       NcdcStationMetadataParser parser = new NcdcStationMetadataParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, String>> emitter) {
         if (parser.parse(input)) {
           emitter.emit(Pair.of(parser.getStationId(), parser.getStationName()));

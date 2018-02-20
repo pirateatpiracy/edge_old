@@ -10,7 +10,7 @@ public class JoinRecordMapper
     extends Mapper<LongWritable, Text, TextPair, Text> {
   private NcdcRecordParser parser = new NcdcRecordParser();
   
-  @Override
+  
   protected void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
     parser.parse(value);

@@ -94,7 +94,7 @@ class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 }
 
 class LowerCaseWordCountMapper extends Mapper<Text, IntWritable, Text, IntWritable> {
-	@Override
+	
 	public void map(Text key, IntWritable value, Context context) throws IOException, InterruptedException {
 		String val = key.toString().toLowerCase();
 		Text newKey = new Text(val);

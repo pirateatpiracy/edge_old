@@ -196,7 +196,7 @@ public class TrackStatisticsProgram {
   public static class SumReducer extends MapReduceBase implements
       Reducer<IntWritable, TrackStats, IntWritable, TrackStats> {
 
-    @Override
+    
     public void reduce(IntWritable trackId, Iterator<TrackStats> values,
         OutputCollector<IntWritable, TrackStats> output, Reporter reporter) throws IOException {
       

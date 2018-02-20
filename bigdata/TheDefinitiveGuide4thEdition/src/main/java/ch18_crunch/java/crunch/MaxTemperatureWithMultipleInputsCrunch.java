@@ -41,7 +41,7 @@ public class MaxTemperatureWithMultipleInputsCrunch {
   private static DoFn<String, Pair<String, Integer>> toYearTempPairsFn() {
     return new DoFn<String, Pair<String, Integer>>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, Integer>> emitter) {
         parser.parse(input);
         if (parser.isValidTemperature()) {
@@ -54,7 +54,7 @@ public class MaxTemperatureWithMultipleInputsCrunch {
   private static DoFn<String, Pair<String, Integer>> metOfficeToYearTempPairsFn() {
     return new DoFn<String, Pair<String, Integer>>() {
       MetOfficeRecordParser parser = new MetOfficeRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, Integer>> emitter) {
         parser.parse(input);
         if (parser.isValidTemperature()) {

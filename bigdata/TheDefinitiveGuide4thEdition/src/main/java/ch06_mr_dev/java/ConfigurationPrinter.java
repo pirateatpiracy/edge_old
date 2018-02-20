@@ -15,7 +15,7 @@ public class ConfigurationPrinter extends Configured implements Tool {
     Configuration.addDefaultResource("mapred-site.xml");
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     Configuration conf = getConf();
     for (Entry<String, String> entry: conf) {

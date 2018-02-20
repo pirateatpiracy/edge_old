@@ -6,7 +6,7 @@ import org.apache.hadoop.util.*;
 
 public class MissingTemperatureFields extends Configured implements Tool {
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 1) {
       JobBuilder.printUsage(this, "<job ID>");

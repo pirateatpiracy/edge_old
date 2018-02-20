@@ -6,7 +6,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
 
 public class LetterCasePartitioner extends Partitioner<Text, IntWritable> {
 
-	@Override
+	
 	public int getPartition(Text key, IntWritable value, int numPart) {
 		// TODO Auto-generated method stub
 		if (numPart == 2) {

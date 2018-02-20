@@ -13,13 +13,13 @@ import org.apache.hadoop.util.*;
 public class JoinRecordWithStationName extends Configured implements Tool {
   
   public static class KeyPartitioner extends Partitioner<TextPair, Text> {
-    @Override
+    
     public int getPartition(/*[*/TextPair key/*]*/, Text value, int numPartitions) {
       return (/*[*/key.getFirst().hashCode()/*]*/ & Integer.MAX_VALUE) % numPartitions;
     }
   }
   
-  @Override
+  
   public int run(String[] args) throws Exception {
     if (args.length != 3) {
       JobBuilder.printUsage(this, "<ncdc input> <station input> <output>");

@@ -17,7 +17,7 @@ import org.apache.hadoop.util.*;
 public class SortByTemperatureUsingTotalOrderPartitioner extends Configured
   implements Tool {
   
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (job == null) {

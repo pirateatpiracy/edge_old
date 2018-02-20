@@ -14,7 +14,7 @@ public class OldMaxTemperature {
   
     private static final int MISSING = 9999;
     
-    @Override
+    
     public void map(LongWritable key, Text value,
         /*[*/OutputCollector<Text, IntWritable> output, Reporter reporter/*]*/)
         throws IOException {
@@ -37,7 +37,7 @@ public class OldMaxTemperature {
   static class OldMaxTemperatureReducer /*[*/extends MapReduceBase/*]*/
     /*[*/implements Reducer/*]*/<Text, IntWritable, Text, IntWritable> {
 
-    @Override
+    
     public void reduce(Text key, /*[*/Iterator/*]*/<IntWritable> values,
         /*[*/OutputCollector<Text, IntWritable> output, Reporter reporter/*]*/)
         throws IOException {

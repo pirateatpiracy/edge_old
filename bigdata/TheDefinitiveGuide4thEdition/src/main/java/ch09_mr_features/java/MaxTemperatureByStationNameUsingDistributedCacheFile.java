@@ -21,7 +21,7 @@ public class MaxTemperatureByStationNameUsingDistributedCacheFile
 
     private NcdcRecordParser parser = new NcdcRecordParser();
     
-    @Override
+    
     protected void map(LongWritable key, Text value, Context context)
         throws IOException, InterruptedException {
       
@@ -38,14 +38,14 @@ public class MaxTemperatureByStationNameUsingDistributedCacheFile
     
     /*[*/private NcdcStationMetadata metadata;/*]*/
     
-    /*[*/@Override
+    /*[*/
     protected void setup(Context context)
         throws IOException, InterruptedException {
       metadata = new NcdcStationMetadata();
       metadata.initialize(new File("stations-fixed-width.txt"));
     }/*]*/
 
-    @Override
+    
     protected void reduce(Text key, Iterable<IntWritable> values,
         Context context) throws IOException, InterruptedException {
       
@@ -59,7 +59,7 @@ public class MaxTemperatureByStationNameUsingDistributedCacheFile
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (job == null) {

@@ -34,7 +34,7 @@ public class SortByTemperatureCrunch {
   private static DoFn<String, Pair<Integer, String>> toTempValuePairsFn() {
     return new DoFn<String, Pair<Integer, String>>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<Integer, String>> emitter) {
         parser.parse(input);
         if (parser.isValidTemperature()) {

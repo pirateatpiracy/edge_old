@@ -17,7 +17,7 @@ import org.apache.hadoop.hive.ql.exec.Description;
 @Description(name = "letters", value = "_FUNC_(expr) - Returns total number of letters in all the strings of a column.")
 public class TotalNumOfLettersGenericUDAF extends AbstractGenericUDAFResolver {
 
-    @Override
+    
     public GenericUDAFEvaluator getEvaluator(TypeInfo[] parameters)
             throws SemanticException {
         if (parameters.length != 1) {
@@ -54,7 +54,7 @@ public class TotalNumOfLettersGenericUDAF extends AbstractGenericUDAFResolver {
         
         int total = 0;
 
-        @Override
+        
         public ObjectInspector init(Mode m, ObjectInspector[] parameters)
                 throws HiveException {
         	
@@ -86,20 +86,20 @@ public class TotalNumOfLettersGenericUDAF extends AbstractGenericUDAFResolver {
             }
         }
 
-        @Override
+        
         public AggregationBuffer getNewAggregationBuffer() throws HiveException {
             LetterSumAgg result = new LetterSumAgg();
             return result;
         }
 
-        @Override
+        
         public void reset(AggregationBuffer agg) throws HiveException {
         	LetterSumAgg myagg = new LetterSumAgg();
         }
         
         private boolean warned = false;
 
-        @Override
+        
         public void iterate(AggregationBuffer agg, Object[] parameters)
                 throws HiveException {
             assert (parameters.length == 1);
@@ -110,14 +110,14 @@ public class TotalNumOfLettersGenericUDAF extends AbstractGenericUDAFResolver {
             }
         }
 
-        @Override
+        
         public Object terminatePartial(AggregationBuffer agg) throws HiveException {
             LetterSumAgg myagg = (LetterSumAgg) agg;
             total += myagg.sum;
             return total;
         }
 
-        @Override
+        
         public void merge(AggregationBuffer agg, Object partial)
                 throws HiveException {
             if (partial != null) {
@@ -133,7 +133,7 @@ public class TotalNumOfLettersGenericUDAF extends AbstractGenericUDAFResolver {
             }
         }
 
-        @Override
+        
         public Object terminate(AggregationBuffer agg) throws HiveException {
             LetterSumAgg myagg = (LetterSumAgg) agg;
             total = myagg.sum;

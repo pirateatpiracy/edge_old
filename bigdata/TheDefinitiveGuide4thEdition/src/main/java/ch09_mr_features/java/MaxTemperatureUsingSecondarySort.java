@@ -23,7 +23,7 @@ public class MaxTemperatureUsingSecondarySort
   
     private NcdcRecordParser parser = new NcdcRecordParser();
     
-    @Override
+    
     protected void map(LongWritable key, Text value,
         Context context) throws IOException, InterruptedException {
       
@@ -38,7 +38,7 @@ public class MaxTemperatureUsingSecondarySort
   static class MaxTemperatureReducer
     extends Reducer<IntPair, NullWritable, IntPair, NullWritable> {
   
-    @Override
+    
     protected void reduce(IntPair key, Iterable<NullWritable> values,
         Context context) throws IOException, InterruptedException {
       
@@ -49,7 +49,7 @@ public class MaxTemperatureUsingSecondarySort
   public static class FirstPartitioner
     extends Partitioner<IntPair, NullWritable> {
 
-    @Override
+    
     public int getPartition(IntPair key, NullWritable value, int numPartitions) {
       // multiply by 127 to perform some mixing
       return Math.abs(key.getFirst() * 127) % numPartitions;
@@ -60,7 +60,7 @@ public class MaxTemperatureUsingSecondarySort
     protected KeyComparator() {
       super(IntPair.class, true);
     }
-    @Override
+    
     public int compare(WritableComparable w1, WritableComparable w2) {
       IntPair ip1 = (IntPair) w1;
       IntPair ip2 = (IntPair) w2;
@@ -76,7 +76,7 @@ public class MaxTemperatureUsingSecondarySort
     protected GroupComparator() {
       super(IntPair.class, true);
     }
-    @Override
+    
     public int compare(WritableComparable w1, WritableComparable w2) {
       IntPair ip1 = (IntPair) w1;
       IntPair ip2 = (IntPair) w2;
@@ -84,7 +84,7 @@ public class MaxTemperatureUsingSecondarySort
     }
   }
 
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (job == null) {

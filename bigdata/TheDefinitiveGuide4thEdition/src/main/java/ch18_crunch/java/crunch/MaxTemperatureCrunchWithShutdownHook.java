@@ -35,7 +35,7 @@ public class MaxTemperatureCrunchWithShutdownHook {
     pipeline.writeTextFile(maxTemps, args[1]);
     final PipelineExecution execution = pipeline.runAsync();
     Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-      @Override
+      
       public void run() {
         try {
           System.out.println("Stopping pipeline...");
@@ -53,7 +53,7 @@ public class MaxTemperatureCrunchWithShutdownHook {
   static DoFn<String, Pair<String, Integer>> toYearTempPairsFn() {
     return new DoFn<String, Pair<String, Integer>>() {
       NcdcRecordParser parser = new NcdcRecordParser();
-      @Override
+      
       public void process(String input, Emitter<Pair<String, Integer>> emitter) {
         parser.parse(input);
         if (parser.isValidTemperature()) {

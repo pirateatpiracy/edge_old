@@ -24,7 +24,7 @@ public class SortDataPreprocessor extends Configured implements Tool {
   
     private NcdcRecordParser parser = new NcdcRecordParser();
     
-    @Override
+    
     protected void map(LongWritable key, Text value, Context context)
         throws IOException, InterruptedException {
       
@@ -35,7 +35,7 @@ public class SortDataPreprocessor extends Configured implements Tool {
     }
   }
   
-  @Override
+  
   public int run(String[] args) throws Exception {
     Job job = JobBuilder.parseInputAndOutput(this, getConf(), args);
     if (job == null) {
