@@ -26,7 +26,7 @@ public class TridentReach {
   public static Map<String, List<String>> TWEETERS_DB = new HashMap<String, List<String>>() {{
     put("foo.com/blog/1", Arrays.asList("sally", "bob", "tim", "george", "nathan"));
     put("engineering.twitter.com/blog/5", Arrays.asList("adam", "david", "sally", "nathan"));
-    put("tech.backtype.com/blog/123", Arrays.asList("tim", "mike", "john"));
+    put("tech.org.apache.com/blog/123", Arrays.asList("tim", "mike", "john"));
   }};
 
   public static Map<String, List<String>> FOLLOWERS_DB = new HashMap<String, List<String>>() {{
