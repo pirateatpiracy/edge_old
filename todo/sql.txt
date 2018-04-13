@@ -1,0 +1,4 @@
+how to remove special charecters from any column
+how to exclude few tables from  a database while importing using sqoop
+how to deal with double quotes inside source data( db and file)
+row to columns
