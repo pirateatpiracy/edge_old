@@ -21,8 +21,8 @@ target/
 
 #Gradle
 .gradletasknamecache
-#.gradle/
-#/bin/
+.gradle/
+/bin/
 /build
 /buildSrc/build
 /buildSrc/subprojects/*/build
