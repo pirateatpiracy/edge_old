@@ -13,7 +13,7 @@ import org.apache.hadoop.io.Text;
 
 public class CostomPartitioner extends Partitioner<Employee, Text> {
 
-	@Override
+	
 	public int getPartition(Employee key, Text value, int numReduceTasks) {	
 		return (key.getDeptNo().hashCode() % numReduceTasks);
 	}

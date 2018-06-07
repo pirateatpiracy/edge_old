@@ -1,0 +1,4 @@
+worker-id: 90683986-2482-40d7-a0ab-ff2ecd296cbc
+logs.users: []
+logs.groups: []
+topology.submitter.user: edge
