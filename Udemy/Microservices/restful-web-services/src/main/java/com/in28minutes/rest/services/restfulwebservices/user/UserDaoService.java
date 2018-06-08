@@ -42,10 +42,6 @@ public User findOne(int id){
  public List<User> findAll(){
 		return users;}
 
-public void addUser(User user) {
-	// TODO Auto-generated method stub
-	
-}
-	 
+
  
 }
