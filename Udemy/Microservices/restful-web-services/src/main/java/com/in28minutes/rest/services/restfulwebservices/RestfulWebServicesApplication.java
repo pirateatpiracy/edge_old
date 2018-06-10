@@ -11,7 +11,7 @@ import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @SpringBootApplication
-public class RestfulWebServicesApplication {
+public class RestfulWebServicesApplication { 
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestfulWebServicesApplication.class, args);
