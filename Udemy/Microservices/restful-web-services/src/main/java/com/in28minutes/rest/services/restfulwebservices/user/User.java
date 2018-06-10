@@ -2,10 +2,15 @@ package com.in28minutes.rest.services.restfulwebservices.user;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class User {
 
 	private	Integer id;
+	@Size(min=2,message="Name should have atleast two charecters")
 	private	String name;
+	@Past
 	private	Date birthDate;
 	public User() {
 		
