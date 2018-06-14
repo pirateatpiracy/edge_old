@@ -10,6 +10,10 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+
+
+import jdk.internal.misc.Unsafe;
+
 @SpringBootApplication
 public class RestfulWebServicesApplication { 
 
@@ -25,7 +29,10 @@ public class RestfulWebServicesApplication {
 		return localResolver;
 		
 	}
-	
+	public static void disableWarning() {
+	    System.err.close();
+	   // System.setErr(System.out);
+	}
 /*	@Bean
 	public ResourceBundleMessageSource messageSource() {
 		ResourceBundleMessageSource messageSource=new ResourceBundleMessageSource();
