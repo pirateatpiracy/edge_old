@@ -31,16 +31,17 @@ public class User {
 	private	Date birthDate;
 	
 	@OneToMany(mappedBy="user")
-	private List<Post> post;
+	private List<Post> posts;
 	
 	public User() {
 		
 	}
-	public List<Post> getPost() {
-		return post;
+	
+	public List<Post> getPosts() {
+		return posts;
 	}
-	public void setPost(List<Post> post) {
-		this.post = post;
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 	public User(Integer id, String name, Date birthDate) {
 		super();

@@ -33,7 +33,7 @@ public class UserJPAResource {
 	}
 
 	@GetMapping(path = "/jpa/users/{id}")
-	public Resource<User> retrieveuser(@PathVariable int id) {
+	public Resource<User> retrieveUser(@PathVariable int id) {
 		Optional<User> user = userRepository.findById(id);
 		if (!user.isPresent())
 			throw new UserNotFoundException("id-" + id + " not found.");
@@ -54,5 +54,15 @@ public class UserJPAResource {
 	@DeleteMapping(path = "/jpa/users/{id}")
 	public void deleteById(@PathVariable int id) {
 		userRepository.deleteById(id);
+	}
+	
+	@GetMapping(path = "/jpa/users/{id}/posts")
+	public List<Post> retrieveUserPosts(@PathVariable int id) {
+		Optional<User> user = userRepository.findById(id);
+		if (!user.isPresent())
+			throw new UserNotFoundException("id-" + id + " not found.");
+		
+		
+		return user.get().getPosts();
 	}
 }
