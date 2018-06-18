@@ -18,6 +18,7 @@
 
 # Maven 
 target/
+!.mvn/wrapper/maven-wrapper.jar
 
 #Gradle
 .gradletasknamecache
@@ -30,11 +31,30 @@ target/
 /subprojects/docs/src/samples/*/*/build
 /subprojects/internal-android-performance-testing/build-android-libs
 
-# IntelliJ project files 
-*.iml
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
 *.iws
+*.iml
 *.ipr
-.idea/
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
 # eclipse project file
 .settings/
@@ -42,14 +62,7 @@ target/
 .project
 .metadata
 
-# NetBeans specific
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
+
 
 
 # OS
