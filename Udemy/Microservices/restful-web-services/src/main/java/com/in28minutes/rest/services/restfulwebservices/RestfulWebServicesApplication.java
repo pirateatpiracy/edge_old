@@ -9,28 +9,21 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 @SpringBootApplication
-public class RestfulWebServicesApplication { 
+public class RestfulWebServicesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestfulWebServicesApplication.class, args);
 	}
-	
+
 	@Bean
-	public LocaleResolver  localeResolver() {
-		//SessionLocaleResolver localResolver =new SessionLocaleResolver();
-		AcceptHeaderLocaleResolver localResolver =new AcceptHeaderLocaleResolver();
+	public LocaleResolver localeResolver() {
+		AcceptHeaderLocaleResolver localResolver = new AcceptHeaderLocaleResolver();
 		localResolver.setDefaultLocale(Locale.US);
 		return localResolver;
-		
+
 	}
+
 	public static void disableWarning() {
-	    System.err.close();
-	   // System.setErr(System.out);
+		System.err.close();
 	}
-/*	@Bean
-	public ResourceBundleMessageSource messageSource() {
-		ResourceBundleMessageSource messageSource=new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		return messageSource;
-	}*/
 }
