@@ -1,4 +1,4 @@
-package com.edge.util;
+package com.edge.util.jsonToTable;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
