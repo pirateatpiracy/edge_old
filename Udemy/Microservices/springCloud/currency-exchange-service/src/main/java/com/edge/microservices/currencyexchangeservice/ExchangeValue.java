@@ -2,20 +2,21 @@ package com.edge.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class ExchangeValue {
 
+	@Id
 	private Long id;
+	@Column(name="currency_from")
 	private String from;
+	@Column(name="currency_to")
 	private String to;
 	private BigDecimal conversionMultiple;
 	private int port;
-	public int getPort() {
-		return port;
-	}
 
-	public void setPort(int port) {
-		this.port = port;
-	}
 
 	public ExchangeValue() {
 		super();
@@ -27,6 +28,7 @@ public class ExchangeValue {
 		this.from = from;
 		this.to = to;
 		this.conversionMultiple = conversionMultiple;
+		//this.port=port;
 	}
 
 	public Long getId() {
@@ -60,6 +62,12 @@ public class ExchangeValue {
 	public void setConversionMultiple(BigDecimal conversionMultiple) {
 		this.conversionMultiple = conversionMultiple;
 	}
+	public int getPort() {
+		return port;
+	}
 
+	public void setPort(int port) {
+		this.port = port;
+	}
 	
 }
