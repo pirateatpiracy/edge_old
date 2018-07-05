@@ -1,4 +1,4 @@
-package webapp;
+package com.edge;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,10 +34,24 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
+	UserValidationService userValidationService=new UserValidationService();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
-
-	}
+		request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);		
+	}	
+		
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {	
+			
+			String name=request.getParameter("nameFromLoginJSP");
+			String pass=request.getParameter("passwordFromLoginJSP");
+			if(userValidationService.isUserValid(name, pass)) {
+			request.setAttribute("name", name);
+			request.getRequestDispatcher("/WEB-INF/view/welcome.jsp").forward(request, response);}
+			
+			else {
+				request.setAttribute("error", "Wrong Credentials");
+				request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);		}
+		}
+	
 
 }
