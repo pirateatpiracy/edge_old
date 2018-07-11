@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.edge.todo.ToDoService;
+
 /*
  * Browser sends Http Request to Web Server
  * 
@@ -35,6 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
 	UserValidationService userValidationService=new UserValidationService();
+	ToDoService toDoService=new ToDoService(); 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);		
@@ -46,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 			String pass=request.getParameter("passwordFromLoginJSP");
 			if(userValidationService.isUserValid(name, pass)) {
 			request.setAttribute("name", name);
-			request.getRequestDispatcher("/WEB-INF/view/welcome.jsp").forward(request, response);}
+			response.sendRedirect("/todo.do");}
 			
 			else {
 				request.setAttribute("error", "Wrong Credentials");

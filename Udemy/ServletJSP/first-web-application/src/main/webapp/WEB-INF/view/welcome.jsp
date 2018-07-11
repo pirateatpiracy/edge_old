@@ -6,7 +6,8 @@
 <meta charset="ISO-8859-1">
 <title>Welcome</title>
 <body>
-Welcome ${name} .
+<p>Welcome ${name} .</p>
 <%--  Your password is ${password} --%>
+<p>${todos}</p>
 </body>
 </html>
