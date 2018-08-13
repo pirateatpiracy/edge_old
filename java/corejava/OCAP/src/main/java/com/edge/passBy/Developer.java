@@ -15,6 +15,13 @@ public class Developer extends Employee{
 		this.skills = skills;
 		this.project = project;
 	}
+	public Developer(String name, int age, float sal, String address, String[] skills) {
+		this.name=name;
+		this.age=age;
+		this.sal=sal;
+		this.skills = skills;
+	}
+
 }
 
 
