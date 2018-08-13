@@ -27,5 +27,12 @@
     <artifactId>commons-collections4</artifactId>
     <version>4.0</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/net.objectlab.kit/objectlab-utils -->
+<dependency>
+    <groupId>net.objectlab.kit</groupId>
+    <artifactId>objectlab-utils</artifactId>
+    <version>1.4.0</version>
+</dependency>
+
   </dependencies>
 </project>
