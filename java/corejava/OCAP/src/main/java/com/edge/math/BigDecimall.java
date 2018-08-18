@@ -2,8 +2,8 @@ package com.edge.math;
 
 import java.math.BigDecimal;
 
-import org.apfloat.ApcomplexMath;
-import org.nevec.rjm.*;
+//import org.apfloat.ApcomplexMath;
+//import org.nevec.rjm.*;
 public class BigDecimall {
 	
 public static void main (String [] arg) {
@@ -19,7 +19,7 @@ public static void main (String [] arg) {
 	System.out.println(Math.pow(a, b));
 	System.out.println(Math.pow(d, e));
 	
-	System.out.println(BigDecimalMath.pow(g, h));
+	//System.out.println(BigDecimalMath.pow(g, h));
 	}
 
 }
