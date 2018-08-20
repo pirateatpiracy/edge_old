@@ -24,3 +24,4 @@ Sqoop Tuning
 TEZ engine
 
 fact dimension
+-autoreset-to-one-mapper
