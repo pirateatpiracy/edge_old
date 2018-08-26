@@ -1,0 +1,37 @@
+General Instructions
+You can use any programming language (Java/Python/Scala) and built-in core functions/classes/packages offered by the language.
+Your program must be able to run against various types of inputs without throwing any exception or error.
+Your program must be able to run using one of the Java MapReduce or MapReduce Streaming or Spark APIs (other than Hive).
+The program can be developed & tested using your local development environment. Finally, it can be submitted in the space given below.
+The current session will close once the allocated time is over after which you will NOT be able to submit the solution.
+Plagiarism of any kind will be liable to disqualification.
+
+******************** END OF INSTRUCTIONS ********************
+
+Customer Loyalty Program
+
+Question. A retail company with various outlets across the country maintains logs centrally of customer's purchases (amount spent). The company is running a Customer Loyality Campaign to award customer having highest total purchase in June 2017.
+
+Your task is to write a MapReduce or Spark program to find out Customer ID whose total spend was highest in June 2017. Assume that there are hundreds of files stored already on HDFS having the schema shown below.
+
+- Each transaction is written in a new line with Month (MMM), Year (YYYY), Customer ID & Total Bill Amount. These fields are separated by "-" .
+- Transactions written to the log file are not necessarily in order by date. 
+- Total number of transactions recorded in each log file may vary. 
+- There can be multiple records for a Customer on a given day across any number of different outlets, each of which is recorded individually to the log file.
+
+Sample File:
+May-2017-120-245.50
+Jun-2017-124-21.50
+Jun-2017-110-34.00
+Jun-2017-120-200.00
+Jul-2017-124-546.50
+Jul-2017-110-1500.00
+Jun-2017-124-245.50
+
+1st Record:
+May-2017 -> Month & Year of purchase
+120 -> Customer ID
+245.50 -> Bill Amount
+
+Answer: 124
+Explanation: In Jun 2017 Customer ID 124 spent 267/- (21.50 + 245.50), 110 spent 34/- & 120 spent 200/-.

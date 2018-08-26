@@ -1,0 +1,10 @@
+git init
+git remote add origin https://github.com/koushikpaul1/bigdata.git
+git pull  https://github.com/koushikpaul1/bigdata.git 2-branch
+git add .
+git commit -m "todo"
+git push  https://github.com/koushikpaul1/bigdata.git 2-branch
+
+git pull  https://github.com/koushikpaul1/bigdata.git 2-branch
+git branch 2-branch
+git checkout 2-branch

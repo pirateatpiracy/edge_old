@@ -1,0 +1,26 @@
+{ "00-dealer_id": "dealer",
+  "01-dealer_id": "INT",
+  "02-name": "varchar(45)", 
+  "03-age": "INT",
+  "04-special": "varchar(45)",
+  "05-manager": {"00-manager_id":"manager",
+				"01-manager_id": "INT",				
+				"05-address": "varchar(45)",
+				"02-name": "varchar(45)",
+				"03-age": "INT",
+				"04-sal": "Float",
+				"06-workshop": {"00-workshop_id":"workshop",
+							  "01-workshop_id": "INT",
+							  "02-location": "varchar(45)",
+							  "03-type": "varchar(45)",
+							  "04-customer": {"00-customer_id":"customer",
+											"01-customer_id": "INT",
+											"02-name": "varchar(45)",
+											"03-car": "varchar(45)",
+											"04-cost": "Float",
+											"05-address": "varchar(45)"
+										  }								}
+														
+				}
+			
+}

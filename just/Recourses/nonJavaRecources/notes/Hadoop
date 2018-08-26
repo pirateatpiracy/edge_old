@@ -1,0 +1,40 @@
+Compression Tool Algorithm   Filename   Splittable?
+DEFLATE[a] N/A  DEFLATE    .deflate   No
+gzip      gzip DEFLATE    .gz       No
+bzip2      bzip2 bzip2      .bz2      Yes
+LZO       lzop LZO       .lzo      No[b]
+LZ4       N/A  LZ4       .lz4      No
+Snappy    N/A  Snappy    .snappy    No 
+
+*******HDFS File write*******
+  create() on DistributedFileSystem>>FSDataOutputStream(DFSOutputStream)>>DFSOutputStream splits it into packets, which it writes to an internal queue called the data queue.The data queue is consumed by the DataStreamer, which is responsible for asking the namenode to allocate new blocks by picking a list of suitable datanodes to store the replicas. The list of datanodes forms a pipeline, and here we�ll assume the replication level is three, so there are three nodes in the pipeline. The DataStreamer streams the packets to the first datanode in the pipeline, which stores each packet and forwards it to the second datanode in the pipeline. Similarly, the second datanode stores the packet and forwards it to the third (and last) datanode in the pipeline (step 4). The DFSOutputStream also maintains an internal queue of packets that are waiting to be acknowledged by datanodes, called the ack queue. A packet is removed from the ack queue only when it has been acknowledged by all the datanodes in the pipeline (step 5). If any datanode fails while data is being written to it, then the following actions are taken, www.zhaoziyuan.com which are transparent to the client writing the data. First, the pipeline is closed, and any packets in the ack queue are added to the front of the data queue so that datanodes that are downstream from the failed node will not miss any packets. The current block on the good datanodes is given a new identity, which is communicated to the namenode, so that the partial block on the failed datanode will be deleted if the failed datanode recovers later on. The failed datanode is removed from the pipeline, and a new pipeline is constructed from the two good datanodes. The remainder of the block�s data is written to the good datanodes in the pipeline. The namenode notices that the block is under-replicated, and it arranges for a further replica to be created on another node. Subsequent blocks are then treated as normal. It�s possible,but unlikely, for multiple datanodes to fail while a block is being written. As long as dfs.namenode.replication.min replicas (which defaults to 1) are written, the write will succeed, and the block will be asynchronously replicated across the cluster until its target replication factor is reached (dfs.replication, which defaults to 3). When the client has finished writing data, it calls close() on the stream (step 6). This action flushes all the remaining packets to the datanode pipeline and waits for acknowledgments before contacting the namenode to signal that the file is complete (step 7). The namenode already knows which blocks the file is made up of (because DataStreamer asks for block allocations), so it only has to wait for blocks to be minimally replicated before returning successfully. 
+
+ *******Balancer*******  
+ Over time, the distribution of blocks across datanodes can become unbalanced. An unbalanced cluster can affect locality for MapReduce, and it puts a greater strain on the highly utilized datanodes, so it�s best avoided. The balancer program is a Hadoop daemon that redistributes blocks by moving them from overutilized datanodes to underutilized datanodes, while adhering to the block replica placement policy that makes data loss unlikely by placing block replicas on different racks (see Replica Placement). It moves blocks until the cluster is deemed to be balanced, which means that the utilization of every datanode (ratio of used space on the node to total capacity of the node) differs from the utilization of the cluster (ratio of used space on the cluster to total capacity of the cluster) by no more than a given threshold percentage. You can start the balancer with: % start-balancer.sh The -threshold argument specifies the threshold percentage that defines what it means for the cluster to be balanced. The flag is optional; if omitted, the threshold is 10%. At any one time, only one balancer may be running on the cluster. The balancer runs until the cluster is balanced, it cannot move any more blocks, or it loses contact with the namenode. It produc
+With tool runner command line arguments can be passed to overwride default values.
+
+>> hadoop jar tool.jar toolRunner.WordCount  -D mapreduce.job.reduces=3 data/mr/1   output/tool/3
+-files file1,fil2 option is used to add distributed cache 
+
+To find mapreduce error in a cluster environment
+YARN has a service for log aggregation that takes the task logs for completed applications and moves them to HDFS, where they are stored in a container file for archival purposes. If this service is enabled (by setting  yarn.log-aggregation-enable  to  true  on the cluster), then task logs can be viewed by clicking on the logs link in the task attempt web UI, or by using the  mapred job -logs  command. 
+By default, log aggregation is not enabled. In this case, task logs can be retrieved by visiting the node manager’s web UI at http:// node-manager-host :8042/logs/userlogs. It is straightforward to write to these logfiles. Anything written to standard output or standard error is directed to the relevant logfile.
+
+***********Combining multiple smal files to one, using streaming jar ******
+1: getmerge <from HDFS to Local> 
+hadoop  fs -getmerge /data/mapreduce/multi/ output/wordcount/9
+2:HAR
+3:Sequence Files
+4:Streaming Jar <from HDFS to HDFS>
+hadoop jar hadoop-streaming-2.9.0.jar      -Dmapred.reduce.tasks=1    -input "/data/mapreduce/multi/"   -output "output/wordcount/4"    -mapper cat    -reducer cat
+
+
+***********Distcp:Copy files between 2 clusters***********
+Distcp >> hadoop distcp hdfs://Hadoop-NameNode1:9000/data hdfs://Hadoop-NameNode2:9000/data
+Hftp for clusters of different versions>> hadoop distcp hftp://Hadoop-NameNode1:50070/data hdfs://Hadoop-NameNode2:9000/data7
+
+
+
+***********To change the behavior of Record reader*********** 
+We can  create a class(myRecordReader) which extends RecordReader ,Paralally we need to implement a new class(myFileInputFormat) which  extends FileInputFormat. if we want to read the whole file as a single record we can overwrite isSplitable() to false, and use myRecordReader in this class. Then finally in the driver class we have to 
+job.setInputFormatClass(myFileInputFormat.class);

@@ -1,0 +1,84 @@
+http://javaconceptoftheday.com/collection-framework-class-hierarchy/s
+
+jvaa.lang.Iterable (Iterator<E> iterator()	Returns an iterator over the collection.))
+ 
+java.util.Collection(
+1	int size()	Returns the number of elements in this collection
+2	boolean isEmpty()	Checks whether this collection is empty or not. If collection is empty, it returns true otherwise it returns false
+3	boolean contains(Object o)	Checks whether this collection has specified element.
+4	Iterator<E> iterator()	Returns an iterator over the collection.
+5	Object[] toArray()	It returns an array containing all elements of this collection.
+6	<T> T[] toArray(T[] a)	It returns an array of specified type containing all elements of this collection.
+7	boolean add(E e)	This method adds specified element to this collection. It returns true if element is added successfully to the collection otherwise it returns false.
+8	boolean remove(Object o)	Removes the specified element from this collection.
+9	boolean containsAll(Collection<?> c)	It checks whether this collection contains all elements of passed collection.
+10	boolean addAll(Collection<? extends E> c)	Adds all elements of the passed collection to this collection.
+11	boolean removeAll(Collection<?> c)	Removes all elements of this collection which are also elements of passed collection.
+12	boolean retainAll(Collection<?> c)	Retains only those elements in this collection which are also elements of passed collection.
+13	void clear()	Removes all elements in this collection.
+14	boolean equals(Object o)	Compares the specified object with this collection for equality.
+15	int hashCode()	Returns the hash code value of this collection.
+)
+
+
+
+
+
+
+
+
+
+
+
+
+List : A list is an ordered collection of elements that allows duplicate entries. Elements
+in a list can be accessed by an int index.
+Arrays>
+ArrayList> inherits AbstractList class and implements List interface. 
+	Fast retrieval of elements(with index). O(1)
+
+Set : A set is a collection that does not allow duplicate entries.
+HashSet > fast O(1), No order 
+Tree Set > O(log n).sorted order
+How HashSet works internally > https://examples.javacodegeeks.com/core-java/sethashset-works-internally-java/
+
+
+Queue : A queue is a collection that orders its elements in a specific order for processing.
+A typical queue processes its elements in a first-in, first-out order, but other orderings
+are possible.
+
+Map : A map is a collection that maps keys to values, with no duplicate keys allowed.
+The elements in a map are key/value pairs.
+
+comparable/comparator
+comparable: overwrite compareTo() inside the class(extending comparable) which we want to compare(String and wrapper classes  alreay having compareTo impleneted)<Collections.sort(empList);>
+comparator: we declare a new class extending comparator and overwrite the compare method, thn while sorting we need to pass the comparatorClass as well.<Collections.sort(empList, AgeCompare);>
+
+Comparable a Functional Interface?
+Comparator is a functional interface because it has a single abstract method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
