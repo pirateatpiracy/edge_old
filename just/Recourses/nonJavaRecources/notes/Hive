@@ -1,0 +1,20 @@
+Text: is a default storage format. You can use the text format to interchange the data with other client application. The text file format is very common most of the applications. Data is stored in lines, with each line being a record. Each lines are terminated by a newline character (\n).The text format is simple plane file format. You can use the compression (BZIP2) on the text file to reduce the storage spaces. 
+Create table textfile_table (column_specs) stored as textfile;
+
+SEQUENCE: files are Hadoop flat files which stores values in binary key-value pairs. The sequence files are in binary format and these files are able to split. The main advantages of using sequence file is to merge two or more files into one file.
+Create table sequencefile_table (column_specs) stored as sequencefile;
+
+RC: is row columnar file format. This is another form of Hive file format which offers high row level compression rates. If you have requirement to perform multiple rows at a time then you can use RCFile format.The RCFile are very much similar to the sequence file format. This file format also stores the data as key-value pairs.
+Create table RCfile_table (column_specs) stored as rcfile;
+
+AVRO: is open source project that provides data serialization and data exchange services for Hadoop. You can exchange data between Hadoop ecosystem and program written in any programming languages. Avro is one of the popular file format in Big Data Hadoop based applications.
+=>It is row major format.Its primary design goal was schema evolution.In the avro format, we store schema separately from data. Generally avro schema file (.avsc) is maintained.
+Create table avro_table (column_specs) stored as avro;
+
+ORC: stands for Optimized Row Columnar file format. The ORC file format provides a highly efficient way to store data in Hive table. This file system was actually designed to overcome limitations of the other Hive file formats. The Use of ORC files improves performance when Hive is reading, writing, and processing data from large tables.
+=>Column oriented storage format.Originally it is Hive's Row Columnar file. Now improved as Optimized RC (ORC).Schema is with the data, but as a part of footer.Data is stored as row groups and stripes.Each stripe maintains indexes and stats about data it stores.
+Create table orc_table (column_specs) stored as orc;
+
+PARQUET: is a column-oriented binary file format. The parquet is highly efficient for the types of large-scale queries. Parquet is especially good for queries scanning particular columns within a particular table. The Parquet table uses compression Snappy, gzip; currently Snappy by default.
+=>Similar to ORC. Based on google dremel.Schema stored in footer.Column oriented storage format.Has integrated compression and indexes
+Create table parquet_table (column_specs) stored as parquet; 

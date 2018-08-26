@@ -1,0 +1,23 @@
+ create table employees_json (
+  emp_no int,
+  birth_date string,
+  first_name string,
+  last_name string,
+  gender string,
+  hire_date string
+) ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.JsonSerDe';
+
+ 
+ 
+ create table employees_orc (
+  emp_no int,
+  birth_date string,
+  first_name string,
+  last_name string,
+  gender string,
+  hire_date string
+) stored as orc tblproperties ("orc.compress"="NONE");
+
+
+insert into employees_orc select * from employees;
+ 
