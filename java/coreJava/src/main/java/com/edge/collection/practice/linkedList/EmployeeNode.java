@@ -1,7 +1,6 @@
 package com.edge.collection.practice.linkedList;
 
 public class EmployeeNode {
-	private EmployeeNode prev;
 	private Employee employee;
 	private EmployeeNode next;
 
@@ -18,13 +17,6 @@ public class EmployeeNode {
 		this.employee = employee;
 	}
 
-	public EmployeeNode getPrev() {
-		return prev;
-	}
-
-	public void setPrev(EmployeeNode prev) {
-		this.prev = prev;
-	}
 
 	public EmployeeNode getNext() {
 		return next;
