@@ -1,5 +1,8 @@
 package com.edge.collection.practice.doublyLinkedList;
 
+import java.util.NoSuchElementException;
+
+
 public class LinkedList<E>{
 	private Node<E> head;
 	private Node<E> tail;
@@ -9,6 +12,16 @@ public class LinkedList<E>{
 	        linkLast(e);
 	        return true;
 	    }
+	  public E getFirst() {
+		  if (head == null)
+	            throw new NoSuchElementException();
+		  return  head.item;
+	  }
+	  public E getLast() {
+		  if (tail == null)
+	            throw new NoSuchElementException();
+		  return  tail.item;
+	  }
 	public void linkLast(E e) {
 		Node<E> node = new Node<E>(e);
 		if (head == null) {
@@ -99,6 +112,19 @@ public class LinkedList<E>{
 				System.out.print(", ");
 
 		}
+	}
+	@Override
+	public String toString() {
+		String result="[";
+
+		Node<E>  current = head;
+		while (current != null) {
+			result+= current;
+			current = current.getNext();
+			if (current != null)
+				result+= ", ";
+		}
+		return result+"]";
 	}
 }
 
