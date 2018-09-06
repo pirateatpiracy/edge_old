@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Sep 3, 2018 10:00:04 PM by Hibernate Tools 5.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="poll" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.leadics.poll.dto.Questions" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="questions">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="pollId" optimistic-lock="true" type="int" unique="false">
+            <column name="poll_id" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="question" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="question"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="status"/>
+        </property>
+        <property generated="never" lazy="false" name="ans1" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="ans1"/>
+        </property>
+        <property generated="never" lazy="false" name="cnt1" optimistic-lock="true" type="int" unique="false">
+            <column name="cnt1" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="ans2" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="ans2"/>
+        </property>
+        <property generated="never" lazy="false" name="cnt2" optimistic-lock="true" type="int" unique="false">
+            <column name="cnt2" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="ans3" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="ans3"/>
+        </property>
+        <property generated="never" lazy="false" name="cnt3" optimistic-lock="true" type="int" unique="false">
+            <column name="cnt3" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="ans4" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="ans4"/>
+        </property>
+        <property generated="never" lazy="false" name="cnt4" optimistic-lock="true" type="int" unique="false">
+            <column name="cnt4" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="ans5" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="ans5"/>
+        </property>
+        <property generated="never" lazy="false" name="cnt5" optimistic-lock="true" type="int" unique="false">
+            <column name="cnt5" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="vote" optimistic-lock="true" type="int" unique="false">
+            <column name="vote" not-null="true"/>
+        </property>
+<!--         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="votes" optimistic-lock="true" sort="unsorted" table="vote">
+            <key on-delete="noaction">
+                <column name="q_id" not-null="true"/>
+            </key>
+            <one-to-many class="xx.yy.Vote" embed-xml="true" not-found="exception"/>
+        </set> -->
+    </class>
+</hibernate-mapping>
