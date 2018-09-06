@@ -15,8 +15,8 @@ public class ArrayStack <E>{
 	}
 	public E pop() {
 		if(top!=0) {
-			E e=stack[stack.length];
-			stack[stack.length]=null;
+			E e=stack[--top];
+			stack[top]=null;
 			return e;
 		}
 		return null;
