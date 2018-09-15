@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Sep 3, 2018 10:00:04 PM by Hibernate Tools 5.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="poll" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.leadics.poll.dto.Vote" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="vote">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.leadics.poll.dto.Questions" fetch="select"  name="questions" >
+            <column name="q_id" />
+        </many-to-one>
+        <property generated="never" lazy="false" name="user" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="user"/>
+        </property>
+        <property generated="never" lazy="false" name="ip" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="ip"/>
+        </property>
+        <property generated="never" lazy="false" name="country" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="country"/>
+        </property>
+        <property generated="never" lazy="false" name="state" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="state"/>
+        </property>
+        <property generated="never" lazy="false" name="city" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="city"/>
+        </property>
+        <property generated="never" lazy="false" name="question" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="question"/>
+        </property>
+        <property generated="never" lazy="false" name="answer" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="answer"/>
+        </property>
+        <property generated="never" lazy="false" name="votedAt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="voted_at"/>
+        </property>
+    </class>
+</hibernate-mapping>

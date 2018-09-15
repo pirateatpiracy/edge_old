@@ -16,7 +16,7 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectIn
 public class NameParserGenericUDTF extends GenericUDTF {
 	  private PrimitiveObjectInspector stringOI = null;
 
-	  @Override
+	  
 	  public StructObjectInspector initialize(ObjectInspector[] args) throws UDFArgumentException {
 	    if (args.length != 1) {
 	      throw new UDFArgumentException("NameParserGenericUDTF() takes exactly one argument");
@@ -60,7 +60,7 @@ public class NameParserGenericUDTF extends GenericUDTF {
 		    return result;
 	  }
 	  
-	  @Override
+	  
 	  public void process(Object[] record) throws HiveException {
 	    final String name = stringOI.getPrimitiveJavaObject(record[0]).toString();
 	    ArrayList<Object[]> results = processInputRecord(name);
@@ -73,7 +73,7 @@ public class NameParserGenericUDTF extends GenericUDTF {
 	    }
 	  }
 
-	  @Override
+	  
 	  public void close() throws HiveException {
 	    // do nothing
 	  }

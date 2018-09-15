@@ -98,7 +98,7 @@ class WordMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 	IntWritable intWritable = new IntWritable(1);
 	Text text = new Text();
 
-	@Override
+	
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String line = value.toString();
 		for (String word : line.split("\\W+")) {

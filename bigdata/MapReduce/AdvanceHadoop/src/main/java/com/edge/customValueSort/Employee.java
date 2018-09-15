@@ -26,19 +26,19 @@ public class Employee implements Writable, WritableComparable<Employee> {
 	public void setTitleName(String titleName) {this.titleName = titleName;}
 	
 
-	@Override
+	
 	public void readFields(DataInput dataInput) throws IOException {
 		deptNo = WritableUtils.readString(dataInput);
 		titleName = WritableUtils.readString(dataInput);
 	}
 
-	@Override
+	
 	public void write(DataOutput dataOutput) throws IOException {
 		WritableUtils.writeString(dataOutput, deptNo);
 		WritableUtils.writeString(dataOutput, titleName);
 	}
 
-	@Override
+	
 	public int compareTo(Employee emp) {
 		int result = deptNo.compareTo(emp.deptNo);
 		if (0 == result)
@@ -46,7 +46,7 @@ public class Employee implements Writable, WritableComparable<Employee> {
 		return result;
 	}
 	
-	@Override	
+		
 	public String toString() {
 		return (new StringBuilder().append(deptNo).append("\t").append(titleName)).toString();
 	}

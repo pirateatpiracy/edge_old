@@ -45,7 +45,7 @@ class TheDataTeamMapper extends Mapper<LongWritable, Text, Text, DoubleWritable>
 	private String [] strarr;
 	private String key;
 	private double value;
-	//@Override
+	//
 	protected void map(LongWritable k1, Text v1, Context context)throws IOException, InterruptedException {
 		line = v1.toString();
 		 strarr=line.split("-");
@@ -64,7 +64,7 @@ class TheDataTeamReducer extends Reducer< Text,DoubleWritable, Text, NullWritabl
 	private Text k3 = new Text();
 	private DoubleWritable v3=new DoubleWritable();
 	double sum;double highest=0;String id="";
-	//@Override
+	//
 	protected void reduce(Text k2, Iterable<DoubleWritable> v2, Context context)
 			throws IOException, InterruptedException {
 		sum=0;
