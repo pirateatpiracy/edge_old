@@ -1,0 +1,6 @@
+[11:34 AM, 10/13/2018] Subham M Chakrabarty PB: Why use spark sql to import data instead of sqoop?
+Why to use hive context spark sql for impala queries.. Both are in memory?
+What authentication used in hive and how to declare in oozie workflow.?
+Explain job flow of MR in refrence to application master?
+How to tune table having table having 250 columns and 40 billion records.. Apart from partition and compute stats?
+[11:38 AM, 10/13/2018] Subham M Chakrabarty PB: Sqoop runs parallelly (n mapper runs parallelly) .. Why you think its slower than spark
