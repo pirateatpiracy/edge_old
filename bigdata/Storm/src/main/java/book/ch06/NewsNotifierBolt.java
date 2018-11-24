@@ -44,7 +44,7 @@ public class NewsNotifierBolt extends BaseRichBolt {
 		try {
 			post.setEntity(new StringEntity(content));
 			HttpResponse response = client.execute(post);
-			org.apache.http.util.EntityUtils.consume(response.getEntity());
+			//org.apache.http.util.EntityUtils.consume(response.getEntity());
 		} catch (Exception e) {
 			e.printStackTrace();
 			reconnect();
